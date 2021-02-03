@@ -147,7 +147,7 @@ class KsiazkaEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
                 $this->generateView();  
             } 
-            App::getRouter()->forwardTo('ksiazkaList');
+            App::getRouter()->redirectTo('listaKsiazka');
             
             
 
