@@ -137,14 +137,12 @@ class KsiazkaEditCtrl {
                             ], [
                         "ID_ksiazki" => $_POST['id']
                     ]);
-                
-                
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
-                
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
                 if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());  
+                    Utils::addErrorMessage($e->getMessage());
+                $this->generateView();
             } 
             App::getRouter()->redirectTo('listaKsiazka');
             
