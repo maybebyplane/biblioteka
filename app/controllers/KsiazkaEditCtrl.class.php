@@ -144,14 +144,11 @@ class KsiazkaEditCtrl {
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
                 if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-                $this->generateView();  
+                    Utils::addErrorMessage($e->getMessage());  
             } 
             App::getRouter()->redirectTo('listaKsiazka');
             
             
-
-// 3b. Po zapisie przejdź na stronę listy książek (w ramach tego samego żądania http)
             
 // 3c. Gdy błąd walidacji to pozostań na stronie
             
