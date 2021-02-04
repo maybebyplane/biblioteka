@@ -81,9 +81,9 @@ class PracownikEditCtrl {
             $record = App::getDB()->get("pracownik", "*", [
                 "ID_pracownika" => $_GET['id_pracownika']
             ]);
-                $this->form->id_ksiazki = $record['ID_pracownika'];
-                $this->form->kategoria = $record['nazwisko'];
-                $this->form->tytul = $record['imie'];
+                $this->form->id_pracownika = $record['ID_pracownika'];
+                $this->form->nazwisko = $record['nazwisko'];
+                $this->form->imie = $record['imie'];
                 //TU CHCĘ IFa ŻEBY OPCJĘ EDYCJI LOGINU I HASŁA DAWAŁ TYLKO WŁAŚCICIELOWI KONTA
                 $this->form->login = $record['login'];
                 $this->form->pass = $record['pass'];
@@ -144,25 +144,7 @@ class PracownikEditCtrl {
         }    
     }
     
-//    public function wypozyczenie(){
-//        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji'); 
-//        
-//        try {
-//                App::getDB()->update("ksiazka", [
-//                    "kategoria" => $this->form->kategoria,
-//                    "tytul" => $this->form->tytul,
-//                    "nazwisko_autora" => $this->form->nazwisko_autora,
-//                    "imie_autora" => $this->form->imie_autora,
-//                    "czy_dostepna" => $this->form->czy_dostepna
-//                ]);  
-//                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
-//            } catch (\PDOException $e) {
-//                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
-//                if (App::getConf()->debug)
-//                    Utils::addErrorMessage($e->getMessage());
-//            }
-//    }
-    
+
     public function generateView() {
         App::getSmarty()->assign('form', $this->form);
         

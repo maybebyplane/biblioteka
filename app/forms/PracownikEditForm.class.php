@@ -2,11 +2,10 @@
 
 namespace app\forms;
 
-class KsiazkaEditForm {
-	public $id_ksiazki;
-	public $kategoria;
-	public $tytul;
-	public $nazwisko_autora;
-	public $imie_autora;
-	public $czy_dostepna;
+class PracownikEditForm {
+	public $id_pracownika;
+	public $nazwisko;
+	public $imie;
+	public $login;
+	public $pass;
 }
