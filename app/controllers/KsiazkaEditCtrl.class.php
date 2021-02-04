@@ -61,7 +61,7 @@ class KsiazkaEditCtrl {
     public function action_edytujKsiazka() {
         try {
             $record = App::getDB()->get("ksiazka", "*", [
-                "ID_ksiazki" => $_GET['id_ksiazki']
+                "ID_ksiazki" => $_GET['id']
             ]);
                 $this->form->kategoria = $record['kategoria'];
                 $this->form->tytul = $record['tytul'];
@@ -80,7 +80,7 @@ class KsiazkaEditCtrl {
     public function action_usunKsiazka() {
         try {
             App::getDB()->delete("ksiazka", [
-                "ID_ksiazki" => $_GET['id_ksiazki']
+                "ID_ksiazki" => $_GET['id']
             ]);
                 Utils::addInfoMessage('Pomyślnie usunięto książkę z bazy zasobów');
         } catch (\PDOException $e) {
@@ -110,7 +110,7 @@ class KsiazkaEditCtrl {
                     "imie_autora" => $this->form->imie_autora,
                     "czy_dostepna" => $this->form->czy_dostepna
                 ], [
-                    "ID_ksiazki" => $_POST['id_ksiazki']
+                    "ID_ksiazki" => $_POST['id']
                     ]);
             }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
