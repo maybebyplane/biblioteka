@@ -32,33 +32,32 @@ class CzytelnikCtrl{
         
         // 2. Przygotowanie mapy z parametrami wyszukiwania (nazwa_kolumny => wartość)
         $search_params = []; //przygotowanie pustej struktury (aby była dostępna nawet gdy nie będzie zawierała wierszy)
-	if ( isset($this->form->tytul) && strlen($this->form->tytul) > 0) {
-            $search_params['tytul[~]'] = $this->form->tytul.'%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
+	if ( isset($this->form->nazwisko) && !empty(($this->form->nazwisko)) ) {
+            $search_params['nazwisko[~]'] = $this->form->nazwisko.'%'; // dodanie symbolu % zastępuje dowolny ciąg znaków na końcu
 	}
                 
         // 3. Pobranie listy rekordów z bazy danych
         // W tym wypadku zawsze wyświetlamy listę osób bez względu na to, czy dane wprowadzone w formularzu wyszukiwania są poprawne.
         // Dlatego pobranie nie jest uwarunkowane poprawnością walidacji (jak miało to miejsce w kalkulatorze)
         //przygotowanie frazy where na wypadek większej liczby parametrów        
-	$num_params = sizeof($search_params);
+	$num_params = sizeof($search_params); 
 	if ($num_params > 1) {
             $where = [ "AND" => &$search_params ];
 	} else {
             $where = &$search_params;
 	}
         //dodanie frazy sortującej po tytule
-	$where ["ORDER"] = "nazwisko_autora";
+	$where ["ORDER"] = "nazwisko";
         
         //wykonanie zapytania
 		
         try {        
-            $this->records = App::getDB()->select("ksiazka", [
-		"ID_ksiazki",
-		"kategoria",
-		"tytul",
-		"nazwisko_autora",
-		"imie_autora",
-		"czy_dostepna",
+            $this->records = App::getDB()->select("czytelnik", [
+		"ID_czytelnika",
+		"nazwisko",
+		"imie",
+		"pesel",
+		"ID_wypozyczenia",
                     ], $where);
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
@@ -68,8 +67,8 @@ class CzytelnikCtrl{
 
         // 4. wygeneruj widok      
 	App::getSmarty()->assign('searchForm',$this->form); 
-        App::getSmarty()->assign('ksiazka',$this->records); 
+        App::getSmarty()->assign('czytelnik',$this->records); 
 		
-        App::getSmarty()->display('ksiazkaView.tpl');
+        App::getSmarty()->display('czytelnikView.tpl');
     }
 }
