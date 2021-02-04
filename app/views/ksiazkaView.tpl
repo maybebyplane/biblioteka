@@ -37,6 +37,9 @@
     <table class="alt">
         <thead>
             <tr>
+                {if count($conf->roles)>0}
+                <th>ID</th>
+                {/if}
                 <th>Tytuł</th>
                 <th>Nazwisko Autora</th>
                 <th>Imię Autora</th>
@@ -52,6 +55,9 @@
         {foreach $ksiazka as $k}
         {strip}
             <tr>
+                {if count($conf->roles)>0}
+                <td>{$k["ID_ksiazki"]}</td>
+                {/if}
                 <td>{$k["tytul"]}</td>
                 <td>{$k["nazwisko_autora"]}</td>
                 <td>{$k["imie_autora"]}</td>
@@ -60,12 +66,12 @@
                 {if count($conf->roles)>0}
                     <td>
                         <ul class="actions small">
-                            <li><a href="{$conf->action_url}edytujKsiazka?id={$k['ID_ksiazki']}" class="button special small">Edytuj</a></li>
+                            <li><a href="{$conf->action_url}edytujKsiazka?id={$k["ID_ksiazki"]}" class="button special small">Edytuj</a></li>
                             &nbsp;
-                            <li><a href="{$conf->action_url}usunKsiazka?id={$k['ID_ksiazki']}" class="button small">Usuń</a></li>	
+                            <li><a href="{$conf->action_url}usunKsiazka?id={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
                             &nbsp;
-                            {if strcmp($k['czy_dostepna'], N)} {*!!!!!!!!!*}
-                            <li><a href="{$conf->action_url}wypozyczKsiazka/{$k['ID_ksiazki']}" class="button alt small">Wypożycz</a></li>			
+                            {if strcmp($k["czy_dostepna"], N)} {*!!!!!!!!!*}
+                            <li><a href="{$conf->action_url}wypozyczKsiazka?id={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
                             {/if}
                         </ul>
                     </td>

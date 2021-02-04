@@ -20,7 +20,8 @@
                 {if count($conf->roles)>0}
                     <li><a href="{$conf->action_root}listaCzytelnik?c=#c">Czytelnicy</a></li>
                     <li><a href="{$conf->action_root}listaPracownik?p=#p">Pracownicy</a></li>
-                    <li><a href="{$conf->action_root}listaKsiazki?k=#k">Książki</a></li>
+                    <li><a href="{$conf->action_root}listaKsiazka?k=#k">Książki</a></li>
+                    <li><a href="{$conf->action_root}listaWypozyczen?w=#w">Wypożyczenia</a></li>
                     <li><a href="{$conf->action_root}logout">Wyloguj</a></li>
                 {else}	
                     <li><a href="{$conf->action_root}loginShow">Zaloguj</a></li>

@@ -18,8 +18,8 @@ class KsiazkaEditCtrl {
 
 // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validate() {
-//0. Pobranie parametrów z walidacją
-        $this->form->id_ksiazki = ParamUtils::getFromRequest('ID_ksiazki', true, 'Błędne wywołanie aplikacji');
+//0. Pobranie parametrów z walidacją                     !!!   ⬇ to mają być nazwy takie jak w pliku Form czy jak w tabeli w bazie??
+        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji');
         $this->form->kategoria = ParamUtils::getFromRequest('kategoria', true, 'Błędne wywołanie aplikacji');
         $this->form->tytul = ParamUtils::getFromRequest('tytul', true, 'Błędne wywołanie aplikacji');
         $this->form->nazwisko_autora = ParamUtils::getFromRequest('nazwisko_autora', true, 'Błędne wywołanie aplikacji');
@@ -79,11 +79,11 @@ class KsiazkaEditCtrl {
 
 //wyświeltenie rekordu do edycji wskazanego parametrem 'id_ksiazki'
     public function action_edytujKsiazka() {
-       //$_SESSION['id_ksiazki'] = $_GET['id'];
+       //$_SESSION['id_ksiazki'] = $_GET['id_ksiazki'];
 //        if ($this->validate()){
             try {
             $record = App::getDB()->get("ksiazka", "*", [
-                "ID_ksiazki" => $_GET['id']
+                "ID_ksiazki" => $_GET['id_ksiazki']
             ]);
                 $this->form->kategoria = $record['kategoria'];
                 $this->form->tytul = $record['tytul'];
@@ -104,7 +104,7 @@ class KsiazkaEditCtrl {
     public function action_usunKsiazka() {
         try {
             App::getDB()->delete("ksiazka", [
-                "ID_ksiazki" => $_GET['id']
+                "ID_ksiazki" => $_GET['id_ksiazki']
             ]);
             Utils::addInfoMessage('Pomyślnie usunięto książkę z bazy zasobów');
         } catch (\PDOException $e) {
@@ -135,7 +135,7 @@ class KsiazkaEditCtrl {
                     "imie_autora" => $this->form->imie_autora,
                     "czy_dostepna" => $this->form->czy_dostepna
                 ], [
-                    "ID_ksiazki" => $_POST['id']
+                    "ID_ksiazki" => $_POST['id_ksiazki']
                     ]);
             }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
