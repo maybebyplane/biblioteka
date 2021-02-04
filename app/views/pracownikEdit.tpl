@@ -24,7 +24,7 @@
             </div>
             <div class="actions">
           	<input type="submit" class="special small" value="Zapisz"/>
-		<a href="{$conf->action_root}listaPrcownik" class="button small">Powrót</a>
+		<a href="{$conf->action_root}listaPracownik" class="button small">Powrót</a>
             </div>
 	</fieldset>
         <input  type="hidden" name="id_pracownika" value="{$form->id_pracownika}">

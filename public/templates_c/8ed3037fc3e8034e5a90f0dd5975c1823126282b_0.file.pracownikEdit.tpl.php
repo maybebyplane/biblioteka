@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-04 22:41:04
+/* Smarty version 3.1.34-dev-7, created on 2021-02-04 23:15:20
   from 'C:\XAMPP\htdocs\biblioteka\app\views\pracownikEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c69f072c372_07710805',
+  'unifunc' => 'content_601c71f86b7776_05462828',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ed3037fc3e8034e5a90f0dd5975c1823126282b' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\pracownikEdit.tpl',
-      1 => 1612474861,
+      1 => 1612476917,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c69f072c372_07710805 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601c71f86b7776_05462828 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_178139436601c69f07267f6_13066052', 'edycja');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1375398735601c71f86b1a07_45776930', 'edycja');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'edycja'} */
-class Block_178139436601c69f07267f6_13066052 extends Smarty_Internal_Block
+class Block_1375398735601c71f86b1a07_45776930 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'edycja' => 
   array (
-    0 => 'Block_178139436601c69f07267f6_13066052',
+    0 => 'Block_1375398735601c71f86b1a07_45776930',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -73,7 +73,7 @@ zapiszPracownik" method="post" class="row uniform 100%">
             <div class="actions">
           	<input type="submit" class="special small" value="Zapisz"/>
 		<a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-listaPrcownik" class="button small">Powrót</a>
+listaPracownik" class="button small">Powrót</a>
             </div>
 	</fieldset>
         <input  type="hidden" name="id_pracownika" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_pracownika;?>
