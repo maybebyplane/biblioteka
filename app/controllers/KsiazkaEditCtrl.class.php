@@ -19,7 +19,7 @@ class KsiazkaEditCtrl {
 // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validate() {
 //0. Pobranie parametrów z walidacją
-        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji');
+        $this->form->id_ksiazki = ParamUtils::getFromRequest('ID_ksiazki', true, 'Błędne wywołanie aplikacji');
         $this->form->kategoria = ParamUtils::getFromRequest('kategoria', true, 'Błędne wywołanie aplikacji');
         $this->form->tytul = ParamUtils::getFromRequest('tytul', true, 'Błędne wywołanie aplikacji');
         $this->form->nazwisko_autora = ParamUtils::getFromRequest('nazwisko_autora', true, 'Błędne wywołanie aplikacji');
@@ -53,6 +53,12 @@ class KsiazkaEditCtrl {
         return !App::getMessages()->isError();
     }
 
+//    public function validateEdit() { 
+//        $this->form->id_ksiazki = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+//        return !App::getMessages()->isError();
+//    }       
+    
+        
     public function action_dodajKsiazka() {        
 //      if ($this->validate());
 //          try{
@@ -73,7 +79,9 @@ class KsiazkaEditCtrl {
 
 //wyświeltenie rekordu do edycji wskazanego parametrem 'id_ksiazki'
     public function action_edytujKsiazka() {
-        try {
+       //$_SESSION['id_ksiazki'] = $_GET['id'];
+//        if ($this->validate()){
+            try {
             $record = App::getDB()->get("ksiazka", "*", [
                 "ID_ksiazki" => $_GET['id']
             ]);
@@ -84,11 +92,12 @@ class KsiazkaEditCtrl {
                 $this->form->czy_dostepna = $record['czy_dostepna'];
                 
                 $this->generateView();
-        } catch (\PDOException $e) {
-            Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-            if (App::getConf()->debug)
-                Utils::addErrorMessage($e->getMessage());
-        }
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+                if (App::getConf()->debug)
+                    Utils::addErrorMessage($e->getMessage());
+            }
+        //}
     }
 
     public function action_usunKsiazka() {
@@ -96,17 +105,18 @@ class KsiazkaEditCtrl {
             App::getDB()->delete("ksiazka", [
                 "ID_ksiazki" => $_GET['id']
             ]);
-                Utils::addInfoMessage('Pomyślnie usunięto książkę z bazy zasobów');
+            Utils::addInfoMessage('Pomyślnie usunięto książkę z bazy zasobów');
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());
         }
 // Przekierowanie na stronę listy książek
-        App::getRouter()->redirectTo("listaKsiazka");
+        App::getRouter()->forwardTo("listaKsiazka");
     }
 
     public function action_zapiszKsiazka() {
+        //if ($this->validate()){
         try {
             if ($this->form->id_ksiazki == '') {
                 App::getDB()->insert("ksiazka", [
@@ -132,11 +142,12 @@ class KsiazkaEditCtrl {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
-                $this->generateView();
-            } 
-            App::getRouter()->redirectTo("listaKsiazka");            
+            $this->generateView();
         }
-
+            App::getRouter()->redirectTo('listaKsiazka');
+        //}    
+    }
+    
     public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
         
