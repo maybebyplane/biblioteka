@@ -3,11 +3,11 @@
 
 {block name=top}
 {if count($conf->roles)>0}
+<h2>Wyszukiwanie pracowników</h2>
 <form action="{$conf->action_url}listaPracownik" method="post">
-    <b><legend style="margin: 1em;">Wyszukiwanie pracowników</legend></b>
     <div class="row uniform 50%">
 	<div class="6u 12u">
-            <input type="text" name="nazwisko" value="{$searchForm->nazwisko}" placeholder=" Wpisz nazwisko" /><br />
+            <input type="text" name="nazwisko" value="{$searchForm->nazwisko}" placeholder=" Wpisz nazwisko pracownika" /><br />
         </div>
         <div class="12u">
             <ul class="actions">

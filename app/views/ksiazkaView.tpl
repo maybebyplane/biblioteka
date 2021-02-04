@@ -1,9 +1,8 @@
 {extends file="main.tpl"}
 
 {block name=top}
-
+<h2>Wyszukiwanie książek</h2>
 <form action="{$conf->action_url}listaKsiazka" method="post">
-    <b><legend style="margin: 1em;">Znajdź książkę</legend></b>
     <div class="row uniform 50%">
         {*<div class="4u 12u">
             <input type="chckbox" id="t_tytul" name="zaznaczenie" checked>
@@ -14,7 +13,7 @@
             <label for="n_nazwisko_autora">Nazwisko Autora</label>
 	</div>*}
 	<div class="6u 12u">
-            <input type="text" name="tytul" value="{$searchForm->tytul}" placeholder=" Czego szukasz?" /><br />
+            <input type="text" name="tytul" value="{$searchForm->tytul}" placeholder=" Podaj tytuł książki" /><br />
         </div>
         <div class="12u">
             <ul class="actions">
@@ -66,12 +65,12 @@
                 {if count($conf->roles)>0}
                     <td>
                         <ul class="actions small">
-                            <li><a href="{$conf->action_url}edytujKsiazka?id={$k["ID_ksiazki"]}" class="button special small">Edytuj</a></li>
+                            <li><a href="{$conf->action_url}edytujKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button special small">Edytuj</a></li>
                             &nbsp;
-                            <li><a href="{$conf->action_url}usunKsiazka?id={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
+                            <li><a href="{$conf->action_url}usunKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
                             &nbsp;
                             {if strcmp($k["czy_dostepna"], N)} {*!!!!!!!!!*}
-                            <li><a href="{$conf->action_url}wypozyczKsiazka?id={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
+                            <li><a href="{$conf->action_url}wypozyczKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
                             {/if}
                         </ul>
                     </td>
