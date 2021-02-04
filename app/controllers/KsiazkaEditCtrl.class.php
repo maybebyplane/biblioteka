@@ -17,7 +17,7 @@ class KsiazkaEditCtrl {
     }
 
 // Walidacja danych przed zapisem (nowe dane lub edycja).
-    public function validateAdd() {
+    public function validate() {
 //0. Pobranie parametrów z walidacją
         $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji');
         $this->form->kategoria = ParamUtils::getFromRequest('kategoria', true, 'Błędne wywołanie aplikacji');
@@ -53,7 +53,21 @@ class KsiazkaEditCtrl {
         return !App::getMessages()->isError();
     }
 
-    public function action_dodajKsiazka() {
+    public function action_dodajKsiazka() {        
+//      if ($this->validate());
+//          try{
+//              App::getDB()->insert("ksiazka", [
+//                  "kategoria" => $this->form->kategoria,
+//                  "tytul" => $this->form->tytul,
+//                  "nazwisko_autora" => $this->form->nazwisko_autora,
+//                  "imie_autora" => $this->form->imie_autora,
+//                  "czy_dostepna" => $this->form->czy_dostepna
+//              ]);                    
+//          } catch (Exception $ex) {
+//              Utils::addErrorMessage('Wystąpił błąd podczas zapisywania');
+//              if (App::getConf()->debug)
+//                  Utils::addErrorMessage($e->getMessage());
+//        }
         $this->generateView();
     }
 
