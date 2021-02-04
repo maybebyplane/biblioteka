@@ -24,4 +24,4 @@ Utils::addRoute('zapiszPracownik',      'PracownikEditCtrl'         );
 Utils::addRoute('usunPracownik',        'PracownikEditCtrl'         );
 Utils::addRoute('edytujPracownik',      'PracownikEditCtrl'         );
 Utils::addRoute('listaPracownik',       'PracownikCtrl'             );
-Utils::addRoute('listaWypozyczen',      'HistoriaWypożyczenCtrl'    );
+Utils::addRoute('listaWypozyczen',      'HistoriaWypozyczenCtrl'    );

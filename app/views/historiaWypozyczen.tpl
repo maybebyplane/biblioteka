@@ -1,9 +1,9 @@
 {extends file="main.tpl"}
 
 {block name=top}
-
-<form action="{$conf->action_root}listaWypozyczen" method="post">
-    <b><legend style="margin: 1em;">Historia wypożyczeń</legend></b>
+{if count($conf->roles)>0}
+<h2>Historia wypożyczeń</h2>
+<form action="{$conf->action_url}listaWypozyczen" method="post">
     <div class="row uniform 50%">
 	<div class="6u 12u">
             <input type="text" name="id_ksiazki" value="{$searchForm->id_ksiazki}" placeholder=" Wpisz ID książki, której szukasz:" /><br />
@@ -17,10 +17,12 @@
     
 </form>	
 </div>
+{/if}
 {/block}
 
 
-{block name=content}   
+{block name=content} 
+{if count($conf->roles)>0}
 <div id="w" name='w' class="table-wrapper">
     <table class="alt">
         <thead>
@@ -50,4 +52,5 @@
         </tbody>           
     </table>
 </div>
+{/if}
 {/block}

@@ -18,8 +18,8 @@ class HistoriaWypozyczenCtrl{
     }        
         
     public function validate() {
+        $this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia');
         $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki');
-//        $this->form->nazwisko_autora = ParamUtils::getFromRequest('nazwisko_autora');
         
         return !App::getMessages()->isError();
     }
@@ -46,7 +46,7 @@ class HistoriaWypozyczenCtrl{
         //wykonanie zapytania
 		
         try {        
-            $this->records = App::getDB()->select("wypozyczenia", [
+            $this->records = App::getDB()->select("wypozyczenie", [
 		"ID_wypozyczenia",
 		"data_wypozyczenia",
 		"data_oddania",
@@ -62,7 +62,7 @@ class HistoriaWypozyczenCtrl{
 
         // 4. wygeneruj widok      
 	App::getSmarty()->assign('searchForm',$this->form); 
-        App::getSmarty()->assign('wypozyczenia',$this->records); 
+        App::getSmarty()->assign('wypozyczenie',$this->records); 
 		
         App::getSmarty()->display('historiaWypozyczen.tpl');
     }
