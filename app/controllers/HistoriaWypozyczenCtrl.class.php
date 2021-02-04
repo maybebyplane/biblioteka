@@ -5,7 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\KsiazkaSearchForm;
+use app\forms\WypozyczeniaForm;
 
 
 class HistoriaWypozyczenCtrl{
@@ -14,7 +14,7 @@ class HistoriaWypozyczenCtrl{
         
     public function __construct(){
 	//stworzenie potrzebnych obiektów
-        $this->form = new WypoczyczeniaForm();
+        $this->form = new WypozyczeniaForm();
     }        
         
     public function validate() {
