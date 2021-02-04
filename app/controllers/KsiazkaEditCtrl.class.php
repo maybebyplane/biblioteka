@@ -53,21 +53,16 @@ class KsiazkaEditCtrl {
         return !App::getMessages()->isError();
     }
 
-//    public function action_dodajKsiazka() {
-//        $this->generateView();
-//    }
+    public function action_dodajKsiazka() {
+        $this->generateView();
+    }
 
 //wyświeltenie rekordu do edycji wskazanego parametrem 'id_ksiazki'
     public function action_edytujKsiazka() {
-        
-//1. walidacja id ksiazki do edycji
-            try {
-               
-// 2. odczyt z bazy danych książki o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("ksiazka", "*", [
-                    "ID_ksiazki" => $_GET['id']
-                ]);
-//2.1 jeśli książka istnieje to wpisz dane do obiektu formularza
+        try {
+            $record = App::getDB()->get("ksiazka", "*", [
+                "ID_ksiazki" => $_GET['id_ksiazki']
+            ]);
                 $this->form->kategoria = $record['kategoria'];
                 $this->form->tytul = $record['tytul'];
                 $this->form->nazwisko_autora = $record['nazwisko_autora'];
@@ -75,68 +70,49 @@ class KsiazkaEditCtrl {
                 $this->form->czy_dostepna = $record['czy_dostepna'];
                 
                 $this->generateView();
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
     }
 
     public function action_usunKsiazka() {
-// 1. walidacja id ksiazki do usuniecia
-            try {
-// 2. usunięcie rekordu
-                App::getDB()->delete("ksiazka", [
-                    "ID_ksiazki" => $_GET['id']
-                ]);
+        try {
+            App::getDB()->delete("ksiazka", [
+                "ID_ksiazki" => $_GET['id_ksiazki']
+            ]);
                 Utils::addInfoMessage('Pomyślnie usunięto książkę z bazy zasobów');
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
-
-// 3. Przekierowanie na stronę listy książek
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+// Przekierowanie na stronę listy książek
         App::getRouter()->forwardTo('listaKsiazka');
     }
 
     public function action_zapiszKsiazka() {
-
-// 1. Walidacja danych formularza (z pobraniem)
-        //if ($this->validateAdd()) {
-// 2. Zapis danych w bazie
-            try {
-
-//2.1 Nowy rekord
-//sprawdź liczebność rekordów - nie pozwalaj przekroczyć 50
-//                    $count = App::getDB()->count("ksiazka");
-//                    if ($count <= 50) {
-//                        App::getDB()->insert("ksiazka", [
-//                            "kategoria" => $this->form->kategoria,
-//                            "tytul" => $this->form->tytul,
-//                            "nazwisko_autora" => $this->form->nazwisko_autora,
-//                            "imie_autora" => $this->form->imie_autora,
-//                            "czy_dostepna" => $this->form->czy_dostepna
-//                        ]);
-//                    } else { //za dużo rekordów
-//// Gdy za dużo rekordów to pozostań na stronie
-//                        Utils::addInfoMessage('Ograniczenie: Zbyt dużo rekordów. Aby dodać nowy usuń wybrany wpis.');
-//                        $this->generateView(); //pozostań na stronie edycji
-//                        exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
-//                    }
-//                } else {
-//2.2 Edycja rekordu o danym ID || UPDATE ksiazka set autor = cos ... where id = $_GET['idKsiazki']
-                 
-                    
-                    App::getDB()->update("ksiazka", [
-                        "kategoria" => $this->form->kategoria,
-                        "tytul" => $this->form->tytul,
-                        "nazwisko_autora" => $this->form->nazwisko_autora,
-                        "imie_autora" => $this->form->imie_autora,
-                        "czy_dostepna" => $this->form->czy_dostepna
-                            ], [
-                        "ID_ksiazki" => $_POST['id']
+        try {
+            if ($this->form->id_ksiazki == '') {
+                App::getDB()->insert("ksiazka", [
+                    "kategoria" => $this->form->kategoria,
+                    "tytul" => $this->form->tytul,
+                    "nazwisko_autora" => $this->form->nazwisko_autora,
+                    "imie_autora" => $this->form->imie_autora,
+                    "czy_dostepna" => $this->form->czy_dostepna
+                ]);                    
+            } else {      
+                App::getDB()->update("ksiazka", [
+                    "kategoria" => $this->form->kategoria,
+                    "tytul" => $this->form->tytul,
+                    "nazwisko_autora" => $this->form->nazwisko_autora,
+                    "imie_autora" => $this->form->imie_autora,
+                    "czy_dostepna" => $this->form->czy_dostepna
+                ], [
+                    "ID_ksiazki" => $_POST['id_ksiazki']
                     ]);
+            }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
@@ -144,12 +120,7 @@ class KsiazkaEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
                 $this->generateView();
             } 
-            App::getRouter()->redirectTo('listaKsiazka');
-            
-            
-            
-// 3c. Gdy błąd walidacji to pozostań na stronie
-            
+            App::getRouter()->redirectTo('listaKsiazka');            
         }
 
     public function generateView() {
