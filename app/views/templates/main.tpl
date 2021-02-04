@@ -68,8 +68,6 @@
         {/if}
     {/block}
 
-
-    <!-- Footer -->
     <footer id="footer">
         <div class="container">
             <ul class="copyright">
@@ -82,8 +80,6 @@
         </div>
     </footer>
 
-        
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
@@ -91,4 +87,5 @@
 
 </body>
 
+            
 </html>

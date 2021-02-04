@@ -49,6 +49,8 @@ class KsiazkaEditCtrl {
             return false;
 
         return !App::getMessages()->isError();
+    
+        
     }       
     
         
@@ -165,7 +167,7 @@ class KsiazkaEditCtrl {
 //    }
     
     public function generateView() {
-        App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
+        App::getSmarty()->assign('form', $this->form);
         
         App::getSmarty()->display('ksiazkaEdit.tpl');
     }

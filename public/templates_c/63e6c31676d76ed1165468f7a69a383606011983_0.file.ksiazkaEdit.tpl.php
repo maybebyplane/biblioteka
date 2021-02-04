@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-04 16:35:57
+/* Smarty version 3.1.34-dev-7, created on 2021-02-04 20:25:20
   from 'C:\XAMPP\htdocs\biblioteka\app\views\ksiazkaEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c145d0616b6_79107453',
+  'unifunc' => 'content_601c4a2013abf9_61131957',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63e6c31676d76ed1165468f7a69a383606011983' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\ksiazkaEdit.tpl',
-      1 => 1612452617,
+      1 => 1612466689,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c145d0616b6_79107453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601c4a2013abf9_61131957 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2055335274601c145d058b50_49984360', 'edycja');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1134727228601c4a201355d6_36899913', 'edycja');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'edycja'} */
-class Block_2055335274601c145d058b50_49984360 extends Smarty_Internal_Block
+class Block_1134727228601c4a201355d6_36899913 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'edycja' => 
   array (
-    0 => 'Block_2055335274601c145d058b50_49984360',
+    0 => 'Block_1134727228601c4a201355d6_36899913',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -52,27 +52,27 @@ zapiszKsiazka" method="post" class="row uniform 100%">
         <fieldset>
             <div class="6u 12u">
                 <label for="kategoria">Kategoria</label>
-                <input id="kategoria" type="text" placeholder=" KATEGORIA" name="kategoria" value=" <?php echo $_smarty_tpl->tpl_vars['form']->value->kategoria;?>
+                <input id="kategoria" type="text" placeholder="KATEGORIA" name="kategoria" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->kategoria;?>
 ">
             </div>
             <div class="6u 12u">
                 <label for="tytul">Tytuł</label>
-                <input id="tytul" type="text" placeholder=" TYTUŁ" name="tytul" value=" <?php echo $_smarty_tpl->tpl_vars['form']->value->tytul;?>
+                <input id="tytul" type="text" placeholder="TYTUŁ" name="tytul" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->tytul;?>
 ">
             </div>
             <div class="6u 12u">
                 <label for="nazwisko_autora">Nazwisko Autora</label>
-                <input id="nazwisko_autora" type="text" placeholder=" NAZWISKO AUTORA" name="nazwisko_autora" value=" <?php echo $_smarty_tpl->tpl_vars['form']->value->nazwisko_autora;?>
+                <input id="nazwisko_autora" type="text" placeholder="NAZWISKO AUTORA" name="nazwisko_autora" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->nazwisko_autora;?>
 ">
             </div>
             <div class="6u 12u">
                 <label for="imie_autora">Imię Autora</label>
-                <input id="imie_autora" type="text" placeholder=" IMIĘ AUTORA" name="imie_autora" value=" <?php echo $_smarty_tpl->tpl_vars['form']->value->imie_autora;?>
+                <input id="imie_autora" type="text" placeholder="IMIĘ AUTORA" name="imie_autora" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->imie_autora;?>
 ">
             </div>
             <div class="6u 12u">
                 <label for="czy_dostepna">Czy dostępna [T/N]</label>
-                <input id="czy_dostepna" type="text" name="czy_dostepna" value=" <?php echo $_smarty_tpl->tpl_vars['form']->value->czy_dostepna;?>
+                <input id="czy_dostepna" type="text" maxlength="1" name="czy_dostepna" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->czy_dostepna;?>
 ">
             </div>
             <div class="actions">

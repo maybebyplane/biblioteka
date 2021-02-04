@@ -1,6 +1,7 @@
 {extends file="main.tpl"}
 
 {block name=top}
+    
 <h2>Wyszukiwanie książek</h2>
 <form action="{$conf->action_url}listaKsiazka" method="post">
     <div class="row uniform 50%">
@@ -25,19 +26,20 @@
             </ul>
         </div>
     </div>
-    
 </form>	
 </div>
+
 {/block}
 
 
-{block name=content}   
+{block name=content}
+    
 <div id="k" name='k' class="table-wrapper">
     <table class="alt">
         <thead>
             <tr>
                 {if count($conf->roles)>0}
-                <th>ID</th>
+                    <th>ID</th>
                 {/if}
                 <th>Tytuł</th>
                 <th>Nazwisko Autora</th>
@@ -51,34 +53,35 @@
         </thead>
 
         <tbody>
-        {foreach $ksiazka as $k}
-        {strip}
-            <tr>
-                {if count($conf->roles)>0}
-                <td>{$k["ID_ksiazki"]}</td>
-                {/if}
-                <td>{$k["tytul"]}</td>
-                <td>{$k["nazwisko_autora"]}</td>
-                <td>{$k["imie_autora"]}</td>
-                <td>{$k["kategoria"]}</td>
-                <td>{$k["czy_dostepna"]}</td>
-                {if count($conf->roles)>0}
-                    <td>
-                        <ul class="actions small">
-                            <li><a href="{$conf->action_url}edytujKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button special small">Edytuj</a></li>
-                            &nbsp;
-                            <li><a href="{$conf->action_url}usunKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
-                            &nbsp;
-                            {if $k["czy_dostepna"] == 'T'}
-                            <li><a href="{$conf->action_url}wypozyczKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
-                            {/if}
-                        </ul>
-                    </td>
-                {/if}
-            </tr>
-        {/strip}
-        {/foreach}
+            {foreach $ksiazka as $k}
+                {strip}
+                    <tr>
+                        {if count($conf->roles)>0}
+                            <td>{$k["ID_ksiazki"]}</td>
+                        {/if}
+                        <td>{$k["tytul"]}</td>
+                        <td>{$k["nazwisko_autora"]}</td>
+                        <td>{$k["imie_autora"]}</td>
+                        <td>{$k["kategoria"]}</td>
+                        <td>{$k["czy_dostepna"]}</td>
+                        {if count($conf->roles)>0}
+                            <td>
+                                <ul class="actions small">
+                                    <li><a href="{$conf->action_url}edytujKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button special small">Edytuj</a></li>
+                                    &nbsp;
+                                    <li><a href="{$conf->action_url}usunKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
+                                    &nbsp;
+                                    {if $k["czy_dostepna"] == 'T'}
+                                        <li><a href="{$conf->action_url}wypozyczKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
+                                    {/if}
+                                </ul>
+                            </td>
+                        {/if}
+                    </tr>
+                {/strip}
+            {/foreach}
         </tbody>           
     </table>
 </div>
+            
 {/block}

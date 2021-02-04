@@ -1,10 +1,10 @@
 <?php
 $conf->debug = true; # set true during development and use in your code (for instance check if true to send additional message)
-if ($conf->debug) {
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-}
+//if ($conf->debug) {
+//    ini_set('display_errors', 1);
+//    ini_set('display_startup_errors', 1);
+//    error_reporting(E_ALL);
+//}
 
 # ---- Webapp location
 $conf->server_name = 'localhost';   # server address and port

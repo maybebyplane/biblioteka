@@ -1,11 +1,11 @@
 {extends file="main.tpl"}
 
 {block name=logowanie}
+    
 <h2>Logowanie do systemu</h2>
 <form action="{$conf->action_url}login" method="post" class="row uniform">
     <div class="container">
         <fieldset class="row uniform 100%">
-            
             <div class="12u">
                 Login: <br /><input id="id_login" type="text" name="login" placeholder=" Login" value="{$form->login}" /><br />
             </div>
@@ -20,4 +20,5 @@
         </fieldset>
     </div>
 </form>
+                
 {/block}
