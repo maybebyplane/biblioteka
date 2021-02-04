@@ -89,7 +89,7 @@ class KsiazkaEditCtrl {
                 Utils::addErrorMessage($e->getMessage());
         }
 // Przekierowanie na stronę listy książek
-        App::getRouter()->forwardTo('listaKsiazka');
+        App::getRouter()->redirectTo("listaKsiazka");
     }
 
     public function action_zapiszKsiazka() {
@@ -120,7 +120,7 @@ class KsiazkaEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
                 $this->generateView();
             } 
-            App::getRouter()->redirectTo('listaKsiazka');            
+            App::getRouter()->redirectTo("listaKsiazka");            
         }
 
     public function generateView() {
