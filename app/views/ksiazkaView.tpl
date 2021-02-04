@@ -69,7 +69,7 @@
                             &nbsp;
                             <li><a href="{$conf->action_url}usunKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button small">Usuń</a></li>	
                             &nbsp;
-                            {if strcmp($k["czy_dostepna"], N)} {*!!!!!!!!!*}
+                            {if $k["czy_dostepna"] == 'T'} {*!!!!!!!!!*}
                             <li><a href="{$conf->action_url}wypozyczKsiazka?id_ksiazki={$k["ID_ksiazki"]}" class="button alt small">Wypożycz</a></li>			
                             {/if}
                         </ul>

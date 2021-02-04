@@ -70,7 +70,8 @@ class KsiazkaCtrl{
 
         // 4. wygeneruj widok      
 	App::getSmarty()->assign('searchForm',$this->form); 
-        App::getSmarty()->assign('ksiazka',$this->records); 
+        App::getSmarty()->assign('ksiazka',$this->records);
+        print_r($this->records);
 		
         App::getSmarty()->display('ksiazkaView.tpl');
     }

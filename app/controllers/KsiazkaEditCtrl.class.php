@@ -17,8 +17,9 @@ class KsiazkaEditCtrl {
     }
 
 // Walidacja danych przed zapisem (nowe dane lub edycja).
+   
     public function validate() {
-//0. Pobranie parametrów z walidacją                     !!!   ⬇ to mają być nazwy takie jak w pliku Form czy jak w tabeli w bazie??
+//0. Pobranie parametrów z walidacją                     
         $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji');
         $this->form->kategoria = ParamUtils::getFromRequest('kategoria', true, 'Błędne wywołanie aplikacji');
         $this->form->tytul = ParamUtils::getFromRequest('tytul', true, 'Błędne wywołanie aplikacji');
@@ -52,7 +53,8 @@ class KsiazkaEditCtrl {
 
         return !App::getMessages()->isError();
     }
-
+        //$this->generateView();
+    //App::getRouter()->forwardTo("listaKsiazka");
 //    public function validateEdit() { 
 //        $this->form->id_ksiazki = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
 //        return !App::getMessages()->isError();
@@ -60,31 +62,37 @@ class KsiazkaEditCtrl {
     
         
     public function action_dodajKsiazka() {        
-//      if ($this->validate());
-//          try{
-//              App::getDB()->insert("ksiazka", [
-//                  "kategoria" => $this->form->kategoria,
-//                  "tytul" => $this->form->tytul,
-//                  "nazwisko_autora" => $this->form->nazwisko_autora,
-//                  "imie_autora" => $this->form->imie_autora,
-//                  "czy_dostepna" => $this->form->czy_dostepna
-//              ]);                    
-//          } catch (Exception $ex) {
-//              Utils::addErrorMessage('Wystąpił błąd podczas zapisywania');
-//              if (App::getConf()->debug)
-//                  Utils::addErrorMessage($e->getMessage());
-//        }
+        if ($_SERVER['REQUEST_METHOD'] === "GET"){
+            $this->generateView();
+        } else if ($_SERVER['REQUEST_METHOD'] === "POST"){
+            if ($this->validate()){
+                try{
+                    App::getDB()->insert("ksiazka", [
+                        "kategoria" => $this->form->kategoria,
+                        "tytul" => $this->form->tytul,
+                        "nazwisko_autora" => $this->form->nazwisko_autora,
+                        "imie_autora" => $this->form->imie_autora,
+                        "czy_dostepna" => $this->form->czy_dostepna
+                    ]);                    
+                } catch (Exception $ex) {
+                    Utils::addErrorMessage('Wystąpił błąd podczas zapisywania');
+                    if (App::getConf()->debug)
+                        Utils::addErrorMessage($e->getMessage());
+                }
+            } 
         $this->generateView();
+        }
     }
 
 //wyświeltenie rekordu do edycji wskazanego parametrem 'id_ksiazki'
     public function action_edytujKsiazka() {
        //$_SESSION['id_ksiazki'] = $_GET['id_ksiazki'];
-//        if ($this->validate()){
+        
             try {
             $record = App::getDB()->get("ksiazka", "*", [
                 "ID_ksiazki" => $_GET['id_ksiazki']
             ]);
+                $this->form->id_ksiazki = $record['ID_ksiazki'];
                 $this->form->kategoria = $record['kategoria'];
                 $this->form->tytul = $record['tytul'];
                 $this->form->nazwisko_autora = $record['nazwisko_autora'];
@@ -96,9 +104,7 @@ class KsiazkaEditCtrl {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
-            }
-        //}
-            
+            }        
     }
 
     public function action_usunKsiazka() {
@@ -117,7 +123,7 @@ class KsiazkaEditCtrl {
     }
 
     public function action_zapiszKsiazka() {
-        //if ($this->validate()){
+        if ($this->validate()){
         try {
             if ($this->form->id_ksiazki == '') {
                 App::getDB()->insert("ksiazka", [
@@ -146,8 +152,27 @@ class KsiazkaEditCtrl {
             $this->generateView();
         }
             App::getRouter()->redirectTo('listaKsiazka');
-        //}    
+        }    
     }
+    
+//    public function wypozyczenie(){
+//        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji'); 
+//        
+//        try {
+//                App::getDB()->update("ksiazka", [
+//                    "kategoria" => $this->form->kategoria,
+//                    "tytul" => $this->form->tytul,
+//                    "nazwisko_autora" => $this->form->nazwisko_autora,
+//                    "imie_autora" => $this->form->imie_autora,
+//                    "czy_dostepna" => $this->form->czy_dostepna
+//                ]);  
+//                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
+//            } catch (\PDOException $e) {
+//                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
+//                if (App::getConf()->debug)
+//                    Utils::addErrorMessage($e->getMessage());
+//            }
+//    }
     
     public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku

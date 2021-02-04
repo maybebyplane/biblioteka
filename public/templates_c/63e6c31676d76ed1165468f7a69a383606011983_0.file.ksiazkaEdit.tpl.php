@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-04 15:41:33
+/* Smarty version 3.1.34-dev-7, created on 2021-02-04 16:35:57
   from 'C:\XAMPP\htdocs\biblioteka\app\views\ksiazkaEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c079d9568a7_78742542',
+  'unifunc' => 'content_601c145d0616b6_79107453',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63e6c31676d76ed1165468f7a69a383606011983' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\ksiazkaEdit.tpl',
-      1 => 1612445202,
+      1 => 1612452617,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c079d9568a7_78742542 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601c145d0616b6_79107453 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2067182870601c079d94f2e9_71899045', 'edycja');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2055335274601c145d058b50_49984360', 'edycja');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'edycja'} */
-class Block_2067182870601c079d94f2e9_71899045 extends Smarty_Internal_Block
+class Block_2055335274601c145d058b50_49984360 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'edycja' => 
   array (
-    0 => 'Block_2067182870601c079d94f2e9_71899045',
+    0 => 'Block_2055335274601c145d058b50_49984360',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -81,7 +81,7 @@ zapiszKsiazka" method="post" class="row uniform 100%">
 listaKsiazka" class="button small">Powrót</a>
             </div>
 	</fieldset>
-        <input type="hidden" name="id_ksiazki" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_ksiazki;?>
+        <input  type="hidden" name="id_ksiazki" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->id_ksiazki;?>
 ">
     </form>	
 </div>

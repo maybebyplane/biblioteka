@@ -25,3 +25,4 @@ Utils::addRoute('usunPracownik',        'PracownikEditCtrl'         );
 Utils::addRoute('edytujPracownik',      'PracownikEditCtrl'         );
 Utils::addRoute('listaPracownik',       'PracownikCtrl'             );
 Utils::addRoute('listaWypozyczen',      'HistoriaWypozyczenCtrl'    );
+Utils::addRoute('wypozyczenia',      'KsiazkaEditCtrl'    );

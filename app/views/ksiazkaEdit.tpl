@@ -31,7 +31,7 @@
 		<a href="{$conf->action_root}listaKsiazka" class="button small">Powrót</a>
             </div>
 	</fieldset>
-        <input type="hidden" name="id_ksiazki" value="{$form->id_ksiazki}">
+        <input  type="hidden" name="id_ksiazki" value="{$form->id_ksiazki}">
     </form>	
 </div>
 

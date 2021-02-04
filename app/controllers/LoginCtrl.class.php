@@ -41,6 +41,8 @@ class LoginCtrl{
 	//if ($this->form->login == "admin" && $this->form->pass == "admin")
         $dbUser = App::getDB()->select("pracownik", "*",["login" => $this->form->login]);
 	if (count($dbUser)>0 && ($this->form->pass == $dbUser[0]['haslo'])) {
+            $id=$dbUser[0]['ID_pracownika'];
+            \core\SessionUtils::store('id_pracownika', $id);
             RoleUtils::addRole('pracownik');
         } else {
             Utils::addErrorMessage('Niepoprawny login lub hasło');
