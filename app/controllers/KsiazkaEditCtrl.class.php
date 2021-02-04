@@ -98,6 +98,7 @@ class KsiazkaEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
             }
         //}
+            
     }
 
     public function action_usunKsiazka() {
