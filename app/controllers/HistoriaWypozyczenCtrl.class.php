@@ -8,7 +8,7 @@ use core\ParamUtils;
 use app\forms\WypozyczeniaForm;
 
 
-class HistoriaWypozyczenCtrl{
+class WypozyczeniaCtrl{
     private $form;
     private $records;
         
