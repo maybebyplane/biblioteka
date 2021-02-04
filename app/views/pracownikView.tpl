@@ -26,7 +26,7 @@
 
 {block name=content}
 {if count($conf->roles)>0}
-<div class="table-wrapper">
+<div id="p" name="p" class="table-wrapper">
     <table class="alt">
         <thead>
             <tr>

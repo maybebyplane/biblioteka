@@ -33,7 +33,7 @@
 
 
 {block name=content}   
-<div class="table-wrapper">
+<div id="k" name='k' class="table-wrapper">
     <table class="alt">
         <thead>
             <tr>

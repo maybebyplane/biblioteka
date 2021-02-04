@@ -26,7 +26,7 @@
 
 {block name=content}
 {if count($conf->roles)>0}
-<div class="table-wrapper">
+<div id="c" name="c" class="table-wrapper">
     <table class="alt">
         <thead>
             <tr>
@@ -52,7 +52,7 @@
                         &nbsp;
                         <li><a href="{$conf->action_url}usunCzytelnik?id={$c['ID_czytelnik']}" class="button small">Usuń</a></li>
                         &nbsp;
-                        <li><a href="{$conf->action_url}usunPracownik?id={$c['ID_czytelnik']}" class="button small">Historia wypożyczeń</a></li>
+                        <li><a href="{$conf->action_url}historiaWypozyczen?id={$c['ID_czytelnik']}" class="button small">Historia wypożyczeń</a></li>
                     </ul>
 {**}               
                 </td>

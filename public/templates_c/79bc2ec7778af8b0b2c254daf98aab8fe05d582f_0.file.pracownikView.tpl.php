@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-03 19:47:53
+/* Smarty version 3.1.34-dev-7, created on 2021-02-04 01:49:49
   from 'C:\XAMPP\htdocs\biblioteka\app\views\pracownikView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601aefd954aa39_81539667',
+  'unifunc' => 'content_601b44ad04c342_57410854',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '79bc2ec7778af8b0b2c254daf98aab8fe05d582f' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\pracownikView.tpl',
-      1 => 1612377794,
+      1 => 1612399672,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601aefd954aa39_81539667 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601b44ad04c342_57410854 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -28,22 +28,22 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1194702559601aefd953bb80_79950665', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1252559648601b44ad03ca05_06140401', 'top');
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1490203436601aefd95423b8_89866054', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_324543333601b44ad043774_88200159', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_1194702559601aefd953bb80_79950665 extends Smarty_Internal_Block
+class Block_1252559648601b44ad03ca05_06140401 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_1194702559601aefd953bb80_79950665',
+    0 => 'Block_1252559648601b44ad03ca05_06140401',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -75,19 +75,19 @@ dodajPracownik" class="button small">Dodaj nowego Pracownika</a></li>
 }
 /* {/block 'top'} */
 /* {block 'content'} */
-class Block_1490203436601aefd95423b8_89866054 extends Smarty_Internal_Block
+class Block_324543333601b44ad043774_88200159 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1490203436601aefd95423b8_89866054',
+    0 => 'Block_324543333601b44ad043774_88200159',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
-<div class="table-wrapper">
+<div id="p" name="p" class="table-wrapper">
     <table class="alt">
         <thead>
             <tr>

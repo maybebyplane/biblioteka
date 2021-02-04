@@ -18,9 +18,9 @@
             <ul>
 		<li><a href="{$conf->app_root}">Strona główna</a></li>
                 {if count($conf->roles)>0}
-                    <li><a href="{$conf->action_root}listaCzytelnik">Czytelnicy</a></li>
-                    <li><a href="{$conf->action_root}listaPracownik">Pracownicy</a></li>
-                    <li><a href="{$conf->action_root}#ksiazki">Książki</a></li>
+                    <li><a href="{$conf->action_root}listaCzytelnik?c=#c">Czytelnicy</a></li>
+                    <li><a href="{$conf->action_root}listaPracownik?p=#p">Pracownicy</a></li>
+                    <li><a href="{$conf->action_root}listaKsiazki?k=#k">Książki</a></li>
                     <li><a href="{$conf->action_root}logout">Wyloguj</a></li>
                 {else}	
                     <li><a href="{$conf->action_root}loginShow">Zaloguj</a></li>
@@ -39,14 +39,14 @@
             <p>Przenieś się razem z nami <br /> w bezkresny świat książek.</p>
             {if !count($conf->roles)>0}
             <ul class="actions">
-                <li><a href="#ksiazki" class="button special icon fa-arrow-down">Zaczynamy</a></li>
+                <li><a href="#" class="button special icon fa-arrow-down">Zaczynamy</a></li>
             </ul>
             {/if}
     </section>
     
-    <div id="ksiazki">
+    
     {block name=top} {/block}
-    </div> 
+    
     {block name=content} {/block}
     
     
