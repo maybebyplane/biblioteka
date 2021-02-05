@@ -39,7 +39,7 @@
                     <th>Imię</th>
                     <th>PESEL</th>
                     <th>Opcje</th>
-                    <th>Wypożyczenie</th>
+                    <th>Wypożyczenie [nr ID]</th>
                 </tr>   
             </thead>
 
@@ -58,11 +58,17 @@
                                     <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c["ID_czytelnika"]}" class="button small">Usuń</a></li>
                                 </ul>               
                             </td>
-                            <td>{$c["ID_wypozyczenia"]}</td>
                             <td>
+                                {$c["ID_wypozyczenia"]}
                                 {if !($c["ID_wypozyczenia"] == '')}
                                     <ul class="actions small">
-                                        <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button special small">Pokaż</a></li>
+                                        <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button alt small">Pokaż</a></li>
+                                    </ul>
+                                {/if} 
+                                &nbsp;
+                                {if $c["ID_wypozyczenia"] == ''}
+                                    <ul class="actions small">
+{*i to by szło do formularza, wypozyczeń*}  <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button alt small">Wybierz</a></li>
                                     </ul>
                                 {/if}
                             </td>
