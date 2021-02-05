@@ -37,13 +37,11 @@ class ZwrotyCtrl{
                "ID_wypozyczenia" => $this->form->id_wypozyczenia 
             ]);
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
+                Utils::addErrorMessage('Wystąpił błąd podczas aktualizajcji');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
-            $insert_id = App::getDB()->id(); //id rekordu, który wprowadziliśmy
-            Utils::addInfoMessage('Pomyślnie zwrócono');//
-    
+            //$insert_id = App::getDB()->id(); //id rekordu, który wprowadziliśmy
   
         try{
             App::getDB()->update("ksiazka", [
@@ -68,7 +66,7 @@ class ZwrotyCtrl{
             if (App::getConf()->debug)
                 Utils::addErrorMessage($e->getMessage());
         }    
-            
+        Utils::addInfoMessage('Pomyślnie zwrócono');//    
         App::getRouter()->redirectTo('listaWypozyczen');
     }
     

@@ -48,7 +48,7 @@
                             <td>
                                 {if $w["data_oddania"] == ''}
                                     <ul class="actions small">
-                                        <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}" class="button alt small">ZWRÓĆ</a></li>
+                                        <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}&id_ksiazki={$id_ksiazki}&id_czytelnika={$id_czytelnika}" class="button alt small">ZWRÓĆ</a></li>
                                     </ul>
                                 {/if}
                              </td>
