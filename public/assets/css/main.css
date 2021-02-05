@@ -2964,7 +2964,7 @@
 			text-transform: none !important;
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1322px) {
 
 			.navPanelToggle {
 				display: block;
