@@ -6,7 +6,7 @@
 {if count($conf->roles)>0}
     
     <h2>Wyszukiwanie czytelników</h2>
-    <form action="{$conf->action_url}listaCzytelnik" method="post">
+    <form action="{$conf->action_url}listaWybierz" method="post">
         <div class="row uniform 50%">
             <div class="6u 12u">
                 <input type="text" name="nazwisko" value="{$searchForm->nazwisko}" placeholder=" Wpisz nazwisko czytelnika" /><br />
@@ -14,8 +14,6 @@
             <div class="12u">
                 <ul class="actions">
                     <li><input type="submit" value="Szukaj" class="special small" /></li>
-                    &nbsp;
-                    <li><a href="{$conf->action_url}dodajCzytelnik" class="button small">Dodaj nowego Czytelnika</a></li> 
                 </ul>
             </div>
         </div>  
@@ -38,6 +36,7 @@
                     <th>Nazwisko</th>
                     <th>Imię</th>
                     <th>PESEL</th>
+                    <th>ID Wypozyczenia</th>
                     <th>Opcje</th>
                 </tr>   
             </thead>
@@ -50,11 +49,10 @@
                             <td>{$c["nazwisko"]}</td>
                             <td>{$c["imie"]}</td>
                             <td>{$c["pesel"]}</td>
+                            <td>{$c["ID_wypozyczenia"]}</td>
                             <td>
                                 <ul class="actions small">
-                                    <li><a href="{$conf->action_url}edytujCzytelnik?id_czytelnika={$c['ID_czytelnika']}" class="button special small">Edytuj</a></li>
-                                    &nbsp;
-                                    <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c['ID_czytelnika']}" class="button small">Usuń</a></li>
+                                    <li><a href="{$conf->action_url}listaWypozyczen?id_czytelnika={$c['ID_czytelnika']}" class="button small">WYBIERZ</a></li>
                                 </ul>               
                             </td>
                         </tr>

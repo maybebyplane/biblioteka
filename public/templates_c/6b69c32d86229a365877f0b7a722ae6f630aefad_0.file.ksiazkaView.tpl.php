@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-04 21:20:30
+/* Smarty version 3.1.34-dev-7, created on 2021-02-05 01:00:23
   from 'C:\XAMPP\htdocs\biblioteka\app\views\ksiazkaView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601c570e593d37_55956480',
+  'unifunc' => 'content_601c8a9722abb1_55397729',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6b69c32d86229a365877f0b7a722ae6f630aefad' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\ksiazkaView.tpl',
-      1 => 1612468043,
+      1 => 1612483216,
       2 => 'file',
     ),
   ),
@@ -20,29 +20,29 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601c570e593d37_55956480 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601c8a9722abb1_55397729 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1249324570601c570e55bdf9_94327690', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_356508712601c8a97218347_67749264', 'top');
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_948752887601c570e562b01_33114907', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1826686755601c8a9721e7e1_36696866', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_1249324570601c570e55bdf9_94327690 extends Smarty_Internal_Block
+class Block_356508712601c8a97218347_67749264 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_1249324570601c570e55bdf9_94327690',
+    0 => 'Block_356508712601c8a97218347_67749264',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,12 +76,12 @@ dodajKsiazka" class="button small">Dodaj książkę do zasobów</a></li>
 }
 /* {/block 'top'} */
 /* {block 'content'} */
-class Block_948752887601c570e562b01_33114907 extends Smarty_Internal_Block
+class Block_1826686755601c8a9721e7e1_36696866 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_948752887601c570e562b01_33114907',
+    0 => 'Block_1826686755601c8a9721e7e1_36696866',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -124,7 +124,7 @@ edytujKsiazka?id_ksiazki=<?php echo $_smarty_tpl->tpl_vars['k']->value["ID_ksiaz
 " class="button special small">Edytuj</a></li>&nbsp;<li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 usunKsiazka?id_ksiazki=<?php echo $_smarty_tpl->tpl_vars['k']->value["ID_ksiazki"];?>
 " class="button small">Usuń</a></li>&nbsp;<?php if ($_smarty_tpl->tpl_vars['k']->value["czy_dostepna"] == 'T') {?><li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-wypozyczKsiazka?id_ksiazki=<?php echo $_smarty_tpl->tpl_vars['k']->value["ID_ksiazki"];?>
+listaCzytelnik?id_ksiazki=<?php echo $_smarty_tpl->tpl_vars['k']->value["ID_ksiazki"];?>
 " class="button alt small">Wypożycz</a></li><?php }?></ul></td><?php }?></tr>
             <?php
 }

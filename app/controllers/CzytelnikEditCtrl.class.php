@@ -22,7 +22,7 @@ class CzytelnikEditCtrl {
         $this->form->nazwisko = ParamUtils::getFromRequest('nazwisko', true, 'Błędne wywołanie aplikacji');
         $this->form->imie = ParamUtils::getFromRequest('imie', true, 'Błędne wywołanie aplikacji');
         $this->form->pesel = ParamUtils::getFromRequest('pesel', true, 'Błędne wywołanie aplikacji');
-        $this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia', true, 'Błędne wywołanie aplikacji');
+        //$this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia', true, 'Błędne wywołanie aplikacji');
 
         if (App::getMessages()->isError())
             return false;
@@ -80,7 +80,7 @@ class CzytelnikEditCtrl {
                 $this->form->kategoria = $record['nazwisko'];
                 $this->form->tytul = $record['imie'];
                 $this->form->nazwisko_autora = $record['pesel'];
-                $this->form->id_wypozyczenia = $record['id_wypozyczenia'];
+                //$this->form->id_wypozyczenia = $record['id_wypozyczenia'];
                 
                 $this->generateView();
         } catch (\PDOException $e) {
@@ -120,10 +120,8 @@ class CzytelnikEditCtrl {
                         "nazwisko" => $this->form->nazwisko,
                         "imie" => $this->form->imie,
                         "pesel" => $this->form->pesel,
-                        "imie_autora" => $this->form->imie_autora,
-                        "czy_dostepna" => $this->form->czy_dostepna
                     ], [
-                        "ID_czytelnika" => $_POST['id_ksiazki']
+                        "ID_czytelnika" => $_POST['id_czytelnika']
                     ]);
                 }
                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
@@ -133,33 +131,15 @@ class CzytelnikEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
                     $this->generateView();
             }
-            App::getRouter()->redirectTo('listaKsiazka');
+            App::getRouter()->redirectTo('listaCzytelnik');
         }    
     }
     
-//    public function wypozyczenie(){
-//        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji'); 
-//        
-//        try {
-//                App::getDB()->update("ksiazka", [
-//                    "kategoria" => $this->form->kategoria,
-//                    "tytul" => $this->form->tytul,
-//                    "nazwisko_autora" => $this->form->nazwisko_autora,
-//                    "imie_autora" => $this->form->imie_autora,
-//                    "czy_dostepna" => $this->form->czy_dostepna
-//                ]);  
-//                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
-//            } catch (\PDOException $e) {
-//                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
-//                if (App::getConf()->debug)
-//                    Utils::addErrorMessage($e->getMessage());
-//            }
-//    }
     
     public function generateView() {
         App::getSmarty()->assign('form', $this->form);
         
-        App::getSmarty()->display('ksiazkaEdit.tpl');
+        App::getSmarty()->display('czytelnikEdit.tpl');
     }
     
 }

@@ -2,7 +2,7 @@
 
 namespace app\forms;
 
-class KsiazkaEditForm {
+class CzytelnikEditForm {
 	public $id_czytelnika;
 	public $nazwisko;
 	public $imie;

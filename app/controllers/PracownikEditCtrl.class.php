@@ -86,7 +86,7 @@ class PracownikEditCtrl {
                 $this->form->imie = $record['imie'];
                 //TU CHCĘ IFa ŻEBY OPCJĘ EDYCJI LOGINU I HASŁA DAWAŁ TYLKO WŁAŚCICIELOWI KONTA
                 $this->form->login = $record['login'];
-                $this->form->pass = $record['pass'];
+                $this->form->pass = $record['haslo'];
                 //
                 
                 $this->generateView();
