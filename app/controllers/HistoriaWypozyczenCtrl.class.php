@@ -39,10 +39,10 @@ class HistoriaWypozyczenCtrl{
 		"ID_wypozyczenia",
 		"data_wypozyczenia",
 		"data_oddania",
-		"id_ksiazki",
-		"id_czytelnika",
-		"id_pracownika",
-            ], $where);
+		"ID_ksiazki",
+		"ID_czytelnika",
+		"ID_pracownika",
+            ]);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)

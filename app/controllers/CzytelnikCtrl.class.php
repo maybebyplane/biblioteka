@@ -20,7 +20,7 @@ class CzytelnikCtrl{
     
     public function validate() {
         $this->form->nazwisko = ParamUtils::getFromRequest('nazwisko');
-        
+        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki');
         return !App::getMessages()->isError();
     }
 	
@@ -59,6 +59,7 @@ class CzytelnikCtrl{
     
 	App::getSmarty()->assign('searchForm',$this->form); 
         App::getSmarty()->assign('czytelnik',$this->records); 
+        App::getSmarty()->assign('id_ksiazki',$this->form->id_ksiazki); 
 		
         App::getSmarty()->display('czytelnikView.tpl');
     }

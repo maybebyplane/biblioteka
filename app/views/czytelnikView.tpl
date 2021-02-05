@@ -68,7 +68,7 @@
                                 &nbsp;
                                 {if $c["ID_wypozyczenia"] == ''}
                                     <ul class="actions small">
-{*i to by szło do formularza, wypozyczeń*}  <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button alt small">Wybierz</a></li>
+{*i to by szło do formularza, wypozyczeń*}  <li><a href="{$conf->action_root}wypozyczKsiazka?id_czytelnika={$c["ID_czytelnika"]}&id_ksiazki={$id_ksiazki}" class="button alt small">Wybierz</a></li>
                                     </ul>
                                 {/if}
                             </td>
