@@ -76,7 +76,7 @@ class PracownikEditCtrl {
     }
 
 
-    public function action_edytujPracownik() { //A MOŻE NIECH OPCJA EDYTUJ PRZY DANYM PRACOWNIKU BĘDZIE DOSTĘPNA TYLKO DLA NIEGO? ALE TO MOZE W WIDOKU POWINNO BYC       
+    public function action_edytujPracownik() {     
         try {
             $record = App::getDB()->get("pracownik", "*", [
                 "ID_pracownika" => $_GET['id_pracownika']
@@ -84,7 +84,6 @@ class PracownikEditCtrl {
                 $this->form->id_pracownika = $record['ID_pracownika'];
                 $this->form->nazwisko = $record['nazwisko'];
                 $this->form->imie = $record['imie'];
-                //TU CHCĘ IFa ŻEBY OPCJĘ EDYCJI LOGINU I HASŁA DAWAŁ TYLKO WŁAŚCICIELOWI KONTA
                 $this->form->login = $record['login'];
                 $this->form->pass = $record['haslo'];
                 //

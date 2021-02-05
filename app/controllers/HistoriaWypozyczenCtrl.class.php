@@ -33,7 +33,16 @@ class HistoriaWypozyczenCtrl{
 	if ( isset($this->form->id_ksiazki) && !empty(($this->form->id_ksiazki)) ) {
             $search_params['id_ksiazki'] = $this->form->id_ksiazki;
         }
-		
+	
+        $num_params = sizeof($search_params); 
+	if ($num_params > 1) {
+            $where = [ "AND" => &$search_params ];
+	} else {
+            $where = &$search_params;
+	}
+
+	$where ["ORDER"] = "data_wypozyczenia";
+        
         try {        
             $this->records = App::getDB()->select("wypozyczenie", [
 		"ID_wypozyczenia",
