@@ -46,9 +46,9 @@
                             <td>{$w["ID_czytelnika"]}</td>
                             <td>{$w["ID_pracownika"]}</td>
                             <td>
-                                {if $w["data_oddania"] == ''}
+                                {if empty({$w["data_oddania"]})}
                                     <ul class="actions small">
-                                        <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}&id_ksiazki={$id_ksiazki}&id_czytelnika={$id_czytelnika}" class="button alt small">ZWRÓĆ</a></li>
+                                        <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}&id_ksiazki={$w["ID_ksiazki"]}&id_czytelnika={$w["ID_czytelnika"]}" class="button alt small">ZWRÓĆ</a></li>
                                     </ul>
                                 {/if}
                              </td>
