@@ -39,9 +39,7 @@
                     <th>Imię</th>
                     <th>PESEL</th>
                     <th>Opcje</th>
-                    {if !({$id_ksiazki} == '')}
-                    <th>Wypożyczenie [nr ID]</th>
-                    {/if} 
+                    <th>Wypożyczenie [nr ID]</th> 
                 </tr>   
             </thead>
 
@@ -60,22 +58,20 @@
                                     <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c["ID_czytelnika"]}" class="button small">Usuń</a></li>
                                 </ul>               
                             </td>
-                            {if !({$id_ksiazki} == '')}
                             <td>
-                                {$c["ID_wypozyczenia"]}
+                                [{$c["ID_wypozyczenia"]}]
                                 {if !($c["ID_wypozyczenia"] == '')}
                                     <ul class="actions small">
                                         <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button alt small">Pokaż</a></li>
                                     </ul>
                                 {/if} 
                                 &nbsp;
-                                {if $c["ID_wypozyczenia"] == ''}
+                                {if !({$id_ksiazki} == '')}
                                     <ul class="actions small">
 {*i to by szło do formularza, wypozyczeń*}  <li><a href="{$conf->action_root}wypozyczKsiazka?id_czytelnika={$c["ID_czytelnika"]}&id_ksiazki={$id_ksiazki}" class="button alt small">Wybierz</a></li>
                                     </ul>
                                 {/if}
                             </td>
-                            {/if}
                         </tr>
                     {/strip}
                 {/foreach}

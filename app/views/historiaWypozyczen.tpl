@@ -2,8 +2,6 @@
 
 {block name=top}
     
-{if count($conf->roles)>0}
-    
     <h2>Historia wypożyczeń</h2>
     <form action="{$conf->action_url}listaWypozyczen" method="post">
         <div class="row uniform 50%">
@@ -18,14 +16,10 @@
         </div>
     </form>	
 
-{/if}
-
 {/block}
 
 
 {block name=content} 
-    
-{if count($conf->roles)>0}
     
     <div id="w" name='w' class="table-wrapper">
         <table class="alt">
@@ -52,7 +46,7 @@
                             <td>{$w["ID_czytelnika"]}</td>
                             <td>{$w["ID_pracownika"]}</td>
                             <td>
-                                {if !($w["ID_wypozyczenia"] == '')}
+                                {if $w["data_oddania"] == ''}
                                     <ul class="actions small">
                                         <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}" class="button alt small">ZWRÓĆ</a></li>
                                     </ul>
@@ -64,7 +58,5 @@
             </tbody>           
         </table>
     </div>
-                
-{/if}
 
 {/block}

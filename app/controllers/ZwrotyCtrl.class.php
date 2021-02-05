@@ -42,7 +42,7 @@ class ZwrotyCtrl{
                     Utils::addErrorMessage($e->getMessage());
             }
             $insert_id = App::getDB()->id(); //id rekordu, który wprowadziliśmy
-            Utils::addInfoMessage('Pomyślnie wypożyczono');//
+            Utils::addInfoMessage('Pomyślnie zwrócono');//
     
   
         try{
