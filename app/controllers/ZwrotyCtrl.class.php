@@ -5,51 +5,49 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\WypozyczeniaForm;
+use app\forms\ZwrotyForm;
 
 
-class WypozyczeniaCtrl{
+class ZwrotyCtrl{
     private $form;
     
     
     public function __construct(){
-        $this->form = new WypozyczeniaForm();
+        $this->form = new ZwrotyForm();
     }        
     
     
     public function validate() {
         //pobieramy dane
+        $this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia');
         $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki');
         $this->form->id_czytelnika = ParamUtils::getFromRequest('id_czytelnika');
     }
   
     
-    
-    public function action_wypozyczKsiazka() {
-        //$zmienna = wypozycz;
+    public function action_zwrocKsiazka() {
         $this->validate();
+
+//aktualizuję datę oddania, dostępnosć ksiażki oraz informację o wypożyczeniu u czytelnika
+        
         try{
-        //dodać wypozyczenie do bazy danych
-            App::getDB()->insert("wypozyczenie", [
-                "data_oddania" => null,
-                "ID_ksiazki" => $this->form->id_ksiazki,
-                "ID_czytelnika" => $this->form->id_czytelnika,
-                "ID_pracownika" => \core\SessionUtils::load('id_pracownika', true)
+            App::getDB()->update("wypozyczenie", [
+                "data_oddania" => date("Y-m-d H:i:s")
+            ], [
+               "ID_wypozyczenia" => $this->form->id_wypozyczenia 
             ]);
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas zapisu');
+                Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
-            
             $insert_id = App::getDB()->id(); //id rekordu, który wprowadziliśmy
             Utils::addInfoMessage('Pomyślnie wypożyczono');//
     
-//aktualizuję dostępnosć ksiażki oraz informację o wypożyczeniu u czytelnika
-            
+  
         try{
             App::getDB()->update("ksiazka", [
-                "czy_dostepna" => 'N'
+                "czy_dostepna" => 'T'
             ], [
                 "ID_ksiazki" => $this->form->id_ksiazki
             ]);
@@ -61,7 +59,7 @@ class WypozyczeniaCtrl{
             
         try{    
             App::getDB()->update("czytelnik", [
-                "ID_wypozyczenia" => $insert_id
+                "ID_wypozyczenia" => null
             ], [
                 "ID_czytelnika" => $this->form->id_czytelnika
             ]);
@@ -76,4 +74,3 @@ class WypozyczeniaCtrl{
     
     
 }
-     

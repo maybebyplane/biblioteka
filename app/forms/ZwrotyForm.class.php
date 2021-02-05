@@ -2,7 +2,7 @@
 
 namespace app\forms;
 
-class WypozyczeniaForm {
+class ZwrotyForm {
 	public $id_ksiazki;
 	public $id_czytelnika;
 } 

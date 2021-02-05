@@ -37,6 +37,7 @@
                     <th>ID Książki</th>
                     <th>ID Czytelnika</th>
                     <th>ID Pracownika</th>
+                    <th>Opcje</th>
                 </tr>   
             </thead>
 
@@ -50,6 +51,13 @@
                             <td>{$w["ID_ksiazki"]}</td>
                             <td>{$w["ID_czytelnika"]}</td>
                             <td>{$w["ID_pracownika"]}</td>
+                            <td>
+                                {if !($w["ID_wypozyczenia"] == '')}
+                                    <ul class="actions small">
+                                        <li><a href="{$conf->action_root}zwrocKsiazka?id_wypozyczenia={$w["ID_wypozyczenia"]}" class="button alt small">ZWRÓĆ</a></li>
+                                    </ul>
+                                {/if}
+                             </td>
                         </tr>
                     {/strip}
                 {/foreach}

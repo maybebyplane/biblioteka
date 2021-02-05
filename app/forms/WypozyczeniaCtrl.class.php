@@ -10,6 +10,7 @@ use app\forms\WypozyczeniaForm;
 
 class WypozyczeniaCtrl{
     private $form;
+    private $records;
     
     
     public function __construct(){
@@ -26,7 +27,6 @@ class WypozyczeniaCtrl{
     
     
     public function action_wypozyczKsiazka() {
-        //$zmienna = wypozycz;
         $this->validate();
         try{
         //dodać wypozyczenie do bazy danych
@@ -37,42 +37,33 @@ class WypozyczeniaCtrl{
                 "ID_pracownika" => \core\SessionUtils::load('id_pracownika', true)
             ]);
             } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas zapisu');
+                Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
-            
             $insert_id = App::getDB()->id(); //id rekordu, który wprowadziliśmy
-            Utils::addInfoMessage('Pomyślnie wypożyczono');//
+            Utils::addInfoMessage('Pomyślnie wypozyczono');//
     
-//aktualizuję dostępnosć ksiażki oraz informację o wypożyczeniu u czytelnika
-            
-        try{
+            //try
             App::getDB()->update("ksiazka", [
                 "czy_dostepna" => 'N'
             ], [
                 "ID_ksiazki" => $this->form->id_ksiazki
             ]);
-        } catch (\PDOException $e) {
-            Utils::addErrorMessage('Wystąpił błąd podczas aktualizacji');
-            if (App::getConf()->debug)
-                Utils::addErrorMessage($e->getMessage());
-        }
+            //catch
             
-        try{    
+            $zmienna = $this->form->id_czytelnika;
+            
             App::getDB()->update("czytelnik", [
                 "ID_wypozyczenia" => $insert_id
             ], [
                 "ID_czytelnika" => $this->form->id_czytelnika
             ]);
-        } catch (\PDOException $e) {
-            Utils::addErrorMessage('Wystąpił błąd podczas aktualizacji');
-            if (App::getConf()->debug)
-                Utils::addErrorMessage($e->getMessage());
-        }    
             
-        App::getRouter()->redirectTo('listaWypozyczen');
+            
+            App::getRouter()->redirectTo('listaWypozyczen');
     }
+    
     
     
 }

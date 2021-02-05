@@ -39,7 +39,9 @@
                     <th>Imię</th>
                     <th>PESEL</th>
                     <th>Opcje</th>
+                    {if !({$id_ksiazki} == '')}
                     <th>Wypożyczenie [nr ID]</th>
+                    {/if} 
                 </tr>   
             </thead>
 
@@ -58,6 +60,7 @@
                                     <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c["ID_czytelnika"]}" class="button small">Usuń</a></li>
                                 </ul>               
                             </td>
+                            {if !({$id_ksiazki} == '')}
                             <td>
                                 {$c["ID_wypozyczenia"]}
                                 {if !($c["ID_wypozyczenia"] == '')}
@@ -72,6 +75,7 @@
                                     </ul>
                                 {/if}
                             </td>
+                            {/if}
                         </tr>
                     {/strip}
                 {/foreach}
