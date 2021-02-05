@@ -24,5 +24,5 @@ Utils::addRoute('zapiszPracownik',      'PracownikEditCtrl' );
 Utils::addRoute('usunPracownik',        'PracownikEditCtrl' );
 Utils::addRoute('edytujPracownik',      'PracownikEditCtrl' );
 Utils::addRoute('listaPracownik',       'PracownikCtrl'     );
-Utils::addRoute('listaWypozyczen',      'WypozyczeniaCtrl'  );
-Utils::addRoute('wypozyczKsiazka',      'WypozyczeniaCtrl'  );
+Utils::addRoute('listaWypozyczen',      'HistoriaWypozyczenCtrl'  ); //prawdopodobnie zmiana nazwy kontrolera będzie
+//Utils::addRoute('wypozyczKsiazka',      'WypozyczeniaCtrl'  );

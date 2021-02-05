@@ -39,6 +39,7 @@
                     <th>Imię</th>
                     <th>PESEL</th>
                     <th>Opcje</th>
+                    <th>Wypożyczenie</th>
                 </tr>   
             </thead>
 
@@ -52,10 +53,18 @@
                             <td>{$c["pesel"]}</td>
                             <td>
                                 <ul class="actions small">
-                                    <li><a href="{$conf->action_url}edytujCzytelnik?id_czytelnika={$c['ID_czytelnika']}" class="button special small">Edytuj</a></li>
+                                    <li><a href="{$conf->action_url}edytujCzytelnik?id_czytelnika={$c["ID_czytelnika"]}" class="button special small">Edytuj</a></li>
                                     &nbsp;
-                                    <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c['ID_czytelnika']}" class="button small">Usuń</a></li>
+                                    <li><a href="{$conf->action_url}usunCzytelnik?id_czytelnika={$c["ID_czytelnika"]}" class="button small">Usuń</a></li>
                                 </ul>               
+                            </td>
+                            <td>{$c["ID_wypozyczenia"]}</td>
+                            <td>
+                                {if !($c["ID_wypozyczenia"] == '')}
+                                    <ul class="actions small">
+                                        <li><a href="{$conf->action_root}listaWypozyczen?id_czytelnika={$c["ID_czytelnika"]}" class="button special small">Pokaż</a></li>
+                                    </ul>
+                                {/if}
                             </td>
                         </tr>
                     {/strip}

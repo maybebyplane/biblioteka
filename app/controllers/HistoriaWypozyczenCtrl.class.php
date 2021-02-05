@@ -5,16 +5,16 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\WypozyczeniaForm;
+use app\forms\HistoriaWypozyczenForm;
 
 
-class WypozyczeniaCtrl{
+class HistoriaWypozyczenCtrl{
     private $form;
     private $records;
     
     
     public function __construct(){
-        $this->form = new WypozyczeniaForm();
+        $this->form = new HistoriaWypozyczenForm();
     }        
      
     

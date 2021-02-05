@@ -2,7 +2,7 @@
 
 namespace app\forms;
 
-class WypozyczeniaForm {
+class HistoriaWypozyczenForm {
 	public $id_wypozyczenia;
 	public $data_wypozyczenia;
 	public $data_oddania;

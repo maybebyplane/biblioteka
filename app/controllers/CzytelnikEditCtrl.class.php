@@ -76,11 +76,11 @@ class CzytelnikEditCtrl {
             $record = App::getDB()->get("czytelnik", "*", [
                 "ID_czytelnika" => $_GET['id_czytelnika']
             ]);
-                $this->form->id_ksiazki = $record['ID_czytelnika'];
-                $this->form->kategoria = $record['nazwisko'];
-                $this->form->tytul = $record['imie'];
-                $this->form->nazwisko_autora = $record['pesel'];
-                //$this->form->id_wypozyczenia = $record['id_wypozyczenia'];
+                $this->form->id_czytelnika = $record['ID_czytelnika'];
+                $this->form->nazwisko = $record['nazwisko'];
+                $this->form->imie = $record['imie'];
+                $this->form->pesel = $record['pesel'];
+                //$this->form->id_wypozyczenia = $record['ID_wypozyczenia'];
                 
                 $this->generateView();
         } catch (\PDOException $e) {
@@ -94,7 +94,7 @@ class CzytelnikEditCtrl {
     public function action_usunCzytelnik() {
         try {
             App::getDB()->delete("czytelnik", [
-                "ID_czytelnika" => $_GET['id_czytelnik']
+                "ID_czytelnika" => $_GET['id_czytelnika']
             ]);
             Utils::addInfoMessage('Pomyślnie usunięto Czytelnika z bazy danych');
         } catch (\PDOException $e) {
