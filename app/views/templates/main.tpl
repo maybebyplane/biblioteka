@@ -43,7 +43,7 @@
             <p>Przenieś się razem z nami <br /> w bezkresny świat książek.</p>
             {if !count($conf->roles)>0}
                 <ul class="actions">
-                    <li><a href="#" class="button special icon fa-arrow-down">Zaczynamy</a></li>
+                    <li><a href="#k" class="button special icon fa-arrow-down">Zaczynamy</a></li>
                 </ul>
             {/if}
     </section>

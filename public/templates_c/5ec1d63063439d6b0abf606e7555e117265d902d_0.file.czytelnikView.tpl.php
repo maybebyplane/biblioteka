@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-05 02:52:33
+/* Smarty version 3.1.34-dev-7, created on 2021-02-05 03:01:38
   from 'C:\XAMPP\htdocs\biblioteka\app\views\czytelnikView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601ca4e19fc890_49795777',
+  'unifunc' => 'content_601ca70202cb53_65051112',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5ec1d63063439d6b0abf606e7555e117265d902d' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\czytelnikView.tpl',
-      1 => 1612489951,
+      1 => 1612490148,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601ca4e19fc890_49795777 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601ca70202cb53_65051112 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
@@ -28,22 +28,22 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1265549867601ca4e19e6b43_03686146', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_471495307601ca702017fd1_06250352', 'top');
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1932419184601ca4e19ec977_06550566', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_36197167601ca70201e538_41112518', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_1265549867601ca4e19e6b43_03686146 extends Smarty_Internal_Block
+class Block_471495307601ca702017fd1_06250352 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_1265549867601ca4e19e6b43_03686146',
+    0 => 'Block_471495307601ca702017fd1_06250352',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -78,12 +78,12 @@ dodajCzytelnik" class="button small">Dodaj nowego Czytelnika</a></li>
 }
 /* {/block 'top'} */
 /* {block 'content'} */
-class Block_1932419184601ca4e19ec977_06550566 extends Smarty_Internal_Block
+class Block_36197167601ca70201e538_41112518 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1932419184601ca4e19ec977_06550566',
+    0 => 'Block_36197167601ca70201e538_41112518',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -50,13 +50,13 @@
                             <td>
 {*CHCIAŁABYM, ŻEBY TO BYŁO WIDOCZNE DLA ZALOGOWANEGO UŻYTKOWNIKA TYLKO PRZY JEGO NAZWISKU*}
                                 <ul class="actions small">
-                                {*{if \core\SessionUtils::load('id_pracownika', true)}*}
-                                {*{if $p["ID_pracownika"] == \core\SessionUtils::load('id_pracownika', true)}*} 
-                                {*{if \core\SessionUtils::load('id_pracownika', true) == $p["ID_pracownika"]} *}
-                                    <li><a href="{$conf->action_url}edytujPracownik?id_pracownika={$p['ID_pracownika']}" class="button special small">Edytuj</a></li>
-                                {*{/if}*}
-                                    &nbsp;
                                     <li><a href="{$conf->action_url}usunPracownik?id_pracownika={$p['ID_pracownika']}" class="button small">Usuń</a></li>
+                                    &nbsp;
+                                    {*{if \core\SessionUtils::load('id_pracownika', true)}*}
+                                    {if $p["ID_pracownika"] == \core\SessionUtils::load('id_pracownika', true)} {*TO DZIAŁA :D*} 
+                                    {*{if \core\SessionUtils::load('id_pracownika', true) == $p["ID_pracownika"]} *}
+                                        <li><a href="{$conf->action_url}edytujPracownik?id_pracownika={$p['ID_pracownika']}" class="button special small">Edytuj</a></li>
+                                    {/if}  
                                 </ul>
 {**}                            
                             </td>
