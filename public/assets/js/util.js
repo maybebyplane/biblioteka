@@ -169,7 +169,7 @@
 									if (target == '_blank')
 										window.open(href);
 									else
-										window.location.href = '#one';
+										window.location.href = href;
 
 								}, config.delay + 10);
 

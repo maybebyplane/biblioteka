@@ -41,7 +41,7 @@ class HistoriaWypozyczenCtrl{
             $where = &$search_params;
 	}
 
-	$where ["ORDER"] = "ID_czytelnika";
+	$where ["ORDER"] = "data_oddania";
         
         try {        
             $this->records = App::getDB()->select("wypozyczenie", [
