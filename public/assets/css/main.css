@@ -1582,7 +1582,7 @@
 			/*padding-top: 0 !important;*/
 		}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1325px) {
 
 			body {
 				padding-top: 0;
@@ -2934,7 +2934,7 @@
 				color: #ffffff !important;
 			}
 
-		@media screen and (max-width: 980px) {
+		@media screen and (max-width: 1325px) {
 
 			#header {
 				display: none;
@@ -2964,7 +2964,7 @@
 			text-transform: none !important;
 		}
 
-		@media screen and (max-width: 1322px) {
+		@media screen and (max-width: 1325px) {
 
 			.navPanelToggle {
 				display: block;

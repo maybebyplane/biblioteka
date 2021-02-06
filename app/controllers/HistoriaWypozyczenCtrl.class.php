@@ -19,7 +19,7 @@ class HistoriaWypozyczenCtrl{
      
     
     public function validate() {
-        $this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia');
+        //$this->form->id_wypozyczenia = ParamUtils::getFromRequest('id_wypozyczenia');
         $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki');
         
         return !App::getMessages()->isError();
@@ -41,7 +41,7 @@ class HistoriaWypozyczenCtrl{
             $where = &$search_params;
 	}
 
-	$where ["ORDER"] = "data_wypozyczenia";
+	$where ["ORDER"] = "ID_czytelnika";
         
         try {        
             $this->records = App::getDB()->select("wypozyczenie", [
@@ -51,7 +51,7 @@ class HistoriaWypozyczenCtrl{
 		"ID_ksiazki",
 		"ID_czytelnika",
 		"ID_pracownika",
-            ]);
+            ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
             if (App::getConf()->debug)

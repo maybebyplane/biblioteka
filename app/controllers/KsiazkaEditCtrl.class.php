@@ -5,6 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
+use core\Validator;
 use app\forms\KsiazkaEditForm;
 
 class KsiazkaEditCtrl {
@@ -28,21 +29,20 @@ class KsiazkaEditCtrl {
         if (App::getMessages()->isError())
             return false;
 
-        if ($this->form->kategoria == "") {
-            App::getMessages()->addMessage(new Message('Wprowadź kategorię', Message::ERROR));
-            return false;
+        if (empty(trim($this->form->kategoria))) {
+           Utils::addErrorMessage('Wprowadź kategorię');
         }
-        if ($this->form->tytul == "") {
-            App::getMessages()->addMessage(new Message('Wprowadź tytul', Message::ERROR));
-            return false;
+        if (empty(trim($this->form->tytul))) {
+            Utils::addErrorMessage('Wprowadź tytul');
         }
-        if ($this->form->nazwisko_autora == "") {
-            App::getMessages()->addMessage(new Message('Wprowadź Nazwisko Autora', Message::ERROR));
-            return false;
+        if (empty(trim($this->form->nazwisko_autora))) {
+           Utils::addErrorMessage('Wprowadź Nazwisko Autora');
         }
-        if ($this->form->imie_autora == "") {
-            App::getMessages()->addMessage(new Message('Wprowadź Imię Autora', Message::ERROR));
-            return false;
+        if (empty(trim($this->form->imie_autora))) {
+           Utils::addErrorMessage('Wprowadź Imię Autora');
+        }
+        if (empty(trim($this->form->czy_dostepna))) {
+           Utils::addErrorMessage('Wprowadź dostępność');
         }
 
         if (App::getMessages()->isError())
@@ -147,24 +147,6 @@ class KsiazkaEditCtrl {
         }    
     }
     
-//    public function wypozyczenie(){
-//        $this->form->id_ksiazki = ParamUtils::getFromRequest('id_ksiazki', true, 'Błędne wywołanie aplikacji'); 
-//        
-//        try {
-//                App::getDB()->update("ksiazka", [
-//                    "kategoria" => $this->form->kategoria,
-//                    "tytul" => $this->form->tytul,
-//                    "nazwisko_autora" => $this->form->nazwisko_autora,
-//                    "imie_autora" => $this->form->imie_autora,
-//                    "czy_dostepna" => $this->form->czy_dostepna
-//                ]);  
-//                 Utils::addInfoMessage('Pomyślnie zapisano rekord');
-//            } catch (\PDOException $e) {
-//                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');
-//                if (App::getConf()->debug)
-//                    Utils::addErrorMessage($e->getMessage());
-//            }
-//    }
     
     public function generateView() {
         App::getSmarty()->assign('form', $this->form);

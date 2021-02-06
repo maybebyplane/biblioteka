@@ -19,6 +19,7 @@
         <div class="12u">
             <ul class="actions">
 		<li><input type="submit" value="Szukaj" class="special small" /></li>
+                <li><input type="reset" value="Reset" class="button small" /></li>
                 &nbsp;
                 {if count($conf->roles)>0}
                 <li><a href="{$conf->action_url}dodajKsiazka" class="button small">Dodaj książkę do zasobów</a></li>
