@@ -44,13 +44,22 @@ class HistoriaWypozyczenCtrl{
 	$where ["ORDER"] = "data_oddania";
         
         try {        
-            $this->records = App::getDB()->select("wypozyczenie", [
-		"ID_wypozyczenia",
-		"data_wypozyczenia",
-		"data_oddania",
-		"ID_ksiazki",
-		"ID_czytelnika",
-		"ID_pracownika",
+            $this->records = App::getDB()->select("wypozyczenie",[
+                "[>]ksiazka"=>"ID_ksiazki", 
+                "[>]czytelnik"=>"ID_czytelnika",
+                "[>]pracownik"=>"ID_pracownika"
+            ], [
+		"wypozyczenie.ID_wypozyczenia",
+		"wypozyczenie.data_wypozyczenia",
+		"wypozyczenie.data_oddania",
+		"ksiazka.ID_ksiazki",
+		"ksiazka.tytul",
+		"czytelnik.ID_czytelnika",
+		"czytelnik.nazwisko",
+		"czytelnik.imie",
+		"pracownik.ID_pracownika",
+		"pracownik.nazwisko(nazw_prac)",
+		"pracownik.imie(imie_prac)"
             ], $where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

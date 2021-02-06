@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2021-02-06 14:48:41
+/* Smarty version 3.1.34-dev-7, created on 2021-02-06 20:18:04
   from 'C:\XAMPP\htdocs\biblioteka\app\views\historiaWypozyczen.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_601e9e399d9e46_33505005',
+  'unifunc' => 'content_601eeb6c2bc830_68492735',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bda8458adaaa8529020c1748f5d866139685a55d' => 
     array (
       0 => 'C:\\XAMPP\\htdocs\\biblioteka\\app\\views\\historiaWypozyczen.tpl',
-      1 => 1612619318,
+      1 => 1612639081,
       2 => 'file',
     ),
   ),
@@ -20,29 +20,29 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_601e9e399d9e46_33505005 (Smarty_Internal_Template $_smarty_tpl) {
+function content_601eeb6c2bc830_68492735 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_526495766601e9e399cb1f5_66602361', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_86067748601eeb6c238ac6_18328824', 'top');
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1242121029601e9e399cec89_76846674', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1628592498601eeb6c262910_78256222', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_526495766601e9e399cb1f5_66602361 extends Smarty_Internal_Block
+class Block_86067748601eeb6c238ac6_18328824 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_526495766601e9e399cb1f5_66602361',
+    0 => 'Block_86067748601eeb6c238ac6_18328824',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,12 +70,12 @@ listaWypozyczen" method="post">
 }
 /* {/block 'top'} */
 /* {block 'content'} */
-class Block_1242121029601e9e399cec89_76846674 extends Smarty_Internal_Block
+class Block_1628592498601eeb6c262910_78256222 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1242121029601e9e399cec89_76846674',
+    0 => 'Block_1628592498601eeb6c262910_78256222',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -106,9 +106,9 @@ $_smarty_tpl->tpl_vars['w']->do_else = false;
                     <tr><td><?php echo $_smarty_tpl->tpl_vars['w']->value["ID_wypozyczenia"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["data_wypozyczenia"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["data_oddania"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["ID_ksiazki"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["ID_czytelnika"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["ID_pracownika"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["tytul"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["nazwisko"];?>
+</td><td><?php echo $_smarty_tpl->tpl_vars['w']->value["nazw_prac"];?>
 </td><td><?php ob_start();
 echo $_smarty_tpl->tpl_vars['w']->value["data_oddania"];
 $_prefixVariable1 = ob_get_clean();

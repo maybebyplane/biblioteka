@@ -42,9 +42,9 @@
                             <td>{$w["ID_wypozyczenia"]}</td>
                             <td>{$w["data_wypozyczenia"]}</td>
                             <td>{$w["data_oddania"]}</td>
-                            <td>{$w["ID_ksiazki"]}</td>
-                            <td>{$w["ID_czytelnika"]}</td>
-                            <td>{$w["ID_pracownika"]}</td>
+                            <td>{$w["tytul"]}</td>
+                            <td>{$w["nazwisko"]}</td>
+                            <td>{$w["nazw_prac"]}</td>
                             <td>
                                 {if empty({$w["data_oddania"]})}
                                     <ul class="actions small">
