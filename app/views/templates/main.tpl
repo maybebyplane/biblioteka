@@ -75,7 +75,7 @@
                 <li>Design: <a href="http://templated.co">TEMPLATED</a></li>
                 <li>Images: <a href="http://www.canva.com">Canva</a></li>
                 <li>Made by: Dominika Pałyz</li>
-                <li><a href="{$conf->action_root}start">Strona główna</a></li>
+                <li><a href="{$conf->action_root}">Strona główna</a></li>
             </ul>
         </div>
     </footer>
