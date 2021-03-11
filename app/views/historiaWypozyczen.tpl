@@ -28,9 +28,9 @@
                     <th>ID</th>
                     <th>Data wypożyczenia</th>
                     <th>Data zwrotu</th>
-                    <th>ID Książki</th>
-                    <th>ID Czytelnika</th>
-                    <th>ID Pracownika</th>
+                    <th>Tytuł Książki</th>
+                    <th>Nazwisko Czytelnika</th>
+                    <th>Nazwisko Pracownika</th>
                     <th>Opcje</th>
                 </tr>   
             </thead>
